@@ -1,6 +1,357 @@
 {
   "conflicts": [
     {
+      "id": "korean-war",
+      "name": "朝鲜战争",
+      "countries": ["PRK", "KOR", "USA", "CHN"],
+      "startDate": "1950-06-25",
+      "endDate": "1953-07-27",
+      "status": "ended",
+      "intensity": "high",
+      "description": "朝鲜半岛北南双方及中、美等多国参与的大规模战争，是冷战背景下的第一场热战。战争以三八线为界形成停战局面。",
+      "casualties": {
+        "military": "约 1,200,000",
+        "civilian": "约 2,000,000+",
+        "displaced": "约 500 万"
+      },
+      "timeline": [
+        {
+          "date": "1950-06-25",
+          "event": "朝鲜人民军越过三八线，战争爆发"
+        },
+        {
+          "date": "1950-09-15",
+          "event": "美军仁川登陆"
+        },
+        {
+          "date": "1950-10-19",
+          "event": "中国人民志愿军入朝参战"
+        },
+        {
+          "date": "1953-07-27",
+          "event": "朝鲜停战协定签署"
+        }
+      ]
+    },
+    {
+      "id": "vietnam-war",
+      "name": "越南战争",
+      "countries": ["VNM", "USA", "LAO", "KHM"],
+      "startDate": "1955-11-01",
+      "endDate": "1975-04-30",
+      "status": "ended",
+      "intensity": "high",
+      "description": "北越及越共与美国支持的南越之间的战争，美国深度介入。战争以北越统一越南告终，是冷战时期最漫长的战争之一。",
+      "casualties": {
+        "military": "约 1,300,000",
+        "civilian": "约 2,000,000",
+        "displaced": "约 300 万"
+      },
+      "timeline": [
+        {
+          "date": "1964-08-02",
+          "event": "北部湾事件，美国全面介入"
+        },
+        {
+          "date": "1968-01-30",
+          "event": "春节攻势"
+        },
+        {
+          "date": "1973-01-27",
+          "event": "巴黎和平协定签署，美军撤离"
+        },
+        {
+          "date": "1975-04-30",
+          "event": "西贡陷落，越南统一"
+        }
+      ]
+    },
+    {
+      "id": "algerian-war",
+      "name": "阿尔及利亚战争",
+      "countries": ["DZA", "FRA"],
+      "startDate": "1954-11-01",
+      "endDate": "1962-07-05",
+      "status": "ended",
+      "intensity": "high",
+      "description": "阿尔及利亚民族解放阵线反抗法国殖民统治的独立战争，最终阿尔及利亚获得独立。",
+      "casualties": {
+        "military": "约 50,000",
+        "civilian": "约 500,000 - 1,500,000",
+        "displaced": "约 200 万"
+      },
+      "timeline": [
+        {
+          "date": "1954-11-01",
+          "event": "民族解放阵线发动武装起义"
+        },
+        {
+          "date": "1958-05-13",
+          "event": "阿尔及尔危机，法国第四共和国倒台"
+        },
+        {
+          "date": "1962-03-18",
+          "event": "埃维昂协议签署"
+        },
+        {
+          "date": "1962-07-05",
+          "event": "阿尔及利亚正式独立"
+        }
+      ]
+    },
+    {
+      "id": "six-day-war",
+      "name": "六日战争",
+      "countries": ["ISR", "EGY", "SYR", "JOR"],
+      "startDate": "1967-06-05",
+      "endDate": "1967-06-10",
+      "status": "ended",
+      "intensity": "high",
+      "description": "以色列对埃及、叙利亚、约旦等阿拉伯国家发动的闪电战，以色列占领西奈半岛、戈兰高地、约旦河西岸和加沙地带。",
+      "casualties": {
+        "military": "约 25,000",
+        "civilian": "约 10,000",
+        "displaced": "约 50 万"
+      },
+      "timeline": [
+        {
+          "date": "1967-06-05",
+          "event": "以色列发动先发制人空袭"
+        },
+        {
+          "date": "1967-06-07",
+          "event": "以军占领耶路撒冷旧城"
+        },
+        {
+          "date": "1967-06-10",
+          "event": "停火生效，战争结束"
+        }
+      ]
+    },
+    {
+      "id": "yom-kippur-war",
+      "name": "赎罪日战争",
+      "countries": ["ISR", "EGY", "SYR"],
+      "startDate": "1973-10-06",
+      "endDate": "1973-10-25",
+      "status": "ended",
+      "intensity": "high",
+      "description": "埃及和叙利亚在犹太教赎罪日对以色列发动突然袭击，试图收复六日战争中失去的领土。战争引发石油危机。",
+      "casualties": {
+        "military": "约 20,000",
+        "civilian": "约 5,000",
+        "displaced": "约 10 万"
+      },
+      "timeline": [
+        {
+          "date": "1973-10-06",
+          "event": "埃叙联军发动突袭"
+        },
+        {
+          "date": "1973-10-15",
+          "event": "以军反击，渡过苏伊士运河"
+        },
+        {
+          "date": "1973-10-25",
+          "event": "停火协议生效"
+        }
+      ]
+    },
+    {
+      "id": "soviet-afghan-war",
+      "name": "苏联入侵阿富汗",
+      "countries": ["AFG", "RUS"],
+      "startDate": "1979-12-24",
+      "endDate": "1989-02-15",
+      "status": "ended",
+      "intensity": "high",
+      "description": "苏联入侵阿富汗支持亲苏政权，遭到阿富汗圣战者抵抗。美国、巴基斯坦、沙特等支持圣战者。苏联最终撤军，此战被称为「苏联的越南」。",
+      "casualties": {
+        "military": "约 100,000",
+        "civilian": "约 1,000,000",
+        "displaced": "约 600 万"
+      },
+      "timeline": [
+        {
+          "date": "1979-12-24",
+          "event": "苏军入侵阿富汗"
+        },
+        {
+          "date": "1980-01-01",
+          "event": "圣战者开始游击战"
+        },
+        {
+          "date": "1989-02-15",
+          "event": "苏军完成撤军"
+        }
+      ]
+    },
+    {
+      "id": "iran-iraq-war",
+      "name": "两伊战争",
+      "countries": ["IRN", "IRQ"],
+      "startDate": "1980-09-22",
+      "endDate": "1988-08-20",
+      "status": "ended",
+      "intensity": "high",
+      "description": "伊朗与伊拉克之间长达 8 年的战争，是 20 世纪最血腥的战争之一。双方使用化学武器，造成巨大伤亡。",
+      "casualties": {
+        "military": "约 1,000,000",
+        "civilian": "约 500,000",
+        "displaced": "约 200 万"
+      },
+      "timeline": [
+        {
+          "date": "1980-09-22",
+          "event": "伊拉克入侵伊朗"
+        },
+        {
+          "date": "1984-02-15",
+          "event": "袭船战升级"
+        },
+        {
+          "date": "1988-07-18",
+          "event": "伊朗接受停火"
+        },
+        {
+          "date": "1988-08-20",
+          "event": "正式停火"
+        }
+      ]
+    },
+    {
+      "id": "gulf-war",
+      "name": "海湾战争",
+      "countries": ["IRQ", "USA", "GBR", "FRA", "SAU"],
+      "startDate": "1990-08-02",
+      "endDate": "1991-02-28",
+      "status": "ended",
+      "intensity": "high",
+      "description": "伊拉克入侵科威特后，以美国为首的多国部队发动「沙漠风暴行动」解放科威特。这是第一场大规模高科技战争。",
+      "casualties": {
+        "military": "约 50,000",
+        "civilian": "约 100,000",
+        "displaced": "约 100 万"
+      },
+      "timeline": [
+        {
+          "date": "1990-08-02",
+          "event": "伊拉克入侵科威特"
+        },
+        {
+          "date": "1991-01-17",
+          "event": "多国部队发动空袭"
+        },
+        {
+          "date": "1991-02-24",
+          "event": "地面进攻开始"
+        },
+        {
+          "date": "1991-02-28",
+          "event": "停火，科威特解放"
+        }
+      ]
+    },
+    {
+      "id": "yugoslav-wars",
+      "name": "南斯拉夫内战",
+      "countries": ["SRB", "HRV", "BIH", "SVN"],
+      "startDate": "1991-03-31",
+      "endDate": "2001-11-13",
+      "status": "ended",
+      "intensity": "high",
+      "description": "南斯拉夫解体过程中爆发的系列战争，包括克罗地亚战争、波黑战争、科索沃战争等。战争涉及种族清洗和大规模人道主义危机。",
+      "casualties": {
+        "military": "约 200,000",
+        "civilian": "约 140,000",
+        "displaced": "约 400 万"
+      },
+      "timeline": [
+        {
+          "date": "1991-06-25",
+          "event": "斯洛文尼亚、克罗地亚宣布独立"
+        },
+        {
+          "date": "1992-04-06",
+          "event": "波黑战争爆发"
+        },
+        {
+          "date": "1995-07-11",
+          "event": "斯雷布雷尼察大屠杀"
+        },
+        {
+          "date": "1999-03-24",
+          "event": "北约轰炸南联盟"
+        }
+      ]
+    },
+    {
+      "id": "rwanda-genocide",
+      "name": "卢旺达大屠杀",
+      "countries": ["RWA"],
+      "startDate": "1994-04-07",
+      "endDate": "1994-07-15",
+      "status": "ended",
+      "intensity": "high",
+      "description": "胡图族极端分子对图西族及温和派胡图族的大规模屠杀，100 天内约 80-100 万人遇害，是 20 世纪最严重的种族灭绝事件。",
+      "casualties": {
+        "military": "约 10,000",
+        "civilian": "约 800,000 - 1,000,000",
+        "displaced": "约 200 万"
+      },
+      "timeline": [
+        {
+          "date": "1994-04-06",
+          "event": "卢旺达总统专机被击落"
+        },
+        {
+          "date": "1994-04-07",
+          "event": "大屠杀开始"
+        },
+        {
+          "date": "1994-07-04",
+          "event": "爱国阵线占领基加利"
+        },
+        {
+          "date": "1994-07-15",
+          "event": "大屠杀结束"
+        }
+      ]
+    },
+    {
+      "id": "afghanistan-war",
+      "name": "阿富汗战争 (2001-2021)",
+      "countries": ["AFG", "USA", "GBR"],
+      "startDate": "2001-10-07",
+      "endDate": "2021-08-30",
+      "status": "ended",
+      "intensity": "high",
+      "description": "美国及其盟友以打击基地组织和塔利班政权为由入侵阿富汗。这是美国历史上最漫长的战争，最终以塔利班重新掌权告终。",
+      "casualties": {
+        "military": "约 176,000",
+        "civilian": "约 46,000",
+        "displaced": "约 600 万"
+      },
+      "timeline": [
+        {
+          "date": "2001-10-07",
+          "event": "美军发动空袭，战争开始"
+        },
+        {
+          "date": "2001-12-07",
+          "event": "塔利班政权垮台"
+        },
+        {
+          "date": "2021-08-15",
+          "event": "塔利班重新占领喀布尔"
+        },
+        {
+          "date": "2021-08-30",
+          "event": "美军完成撤军"
+        }
+      ]
+    },
+    {
       "id": "russia-ukraine",
       "name": "俄乌冲突",
       "countries": ["UKR", "RUS"],

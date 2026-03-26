@@ -11,11 +11,8 @@
         :min="minDate"
         :max="maxDate"
         :step="stepValue"
-        :format-value="formatDate"
         :marks="marks"
-        :tooltip-props="{ 
-          formatter: (val) => formatTooltip(val) 
-        }"
+        :format-tooltip="formatTooltip"
         @change="onDateChange"
       />
       
@@ -69,41 +66,44 @@ const selectedDate = ref(new Date().toISOString().split('T')[0])
 const startYear = 1945
 const currentYear = new Date().getFullYear()
 
-// 转换为月份滑块值 (YYYYMM 格式)
-const minDate = startYear * 100 + 1  // 194501 = 1945 年 1 月
-const maxDate = currentYear * 100 + 12  // 202612 = 2026 年 12 月
+// 计算从 1945 年 1 月开始的总月数
+const totalMonths = (currentYear - startYear) * 12 + 12  // 到 2026 年 12 月
+const minDate = 0  // 1945 年 1 月 = 第 0 个月
+const maxDate = totalMonths - 1  // 最后一个月
 const stepValue = 1  // 每次移动 1 个月
 
-const sliderValue = ref(dateToSlider(selectedDate.value))
-
-// 生成月份标记
-const marks = {}
-for (let year = startYear; year <= currentYear; year += 5) {
-  marks[year * 100 + 1] = `${year}年`
-}
-
-const activeConflicts = computed(() => {
-  return store.getConflictsByDate(selectedDate.value)
-})
-
-function dateToSlider(dateStr) {
+// 将日期转换为总月数
+const dateToTotalMonths = (dateStr) => {
   const date = new Date(dateStr)
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  return year * 100 + month
+  return (date.getFullYear() - startYear) * 12 + date.getMonth()
 }
 
-function sliderToDate(sliderValue) {
-  const year = Math.floor(sliderValue / 100)
-  const month = sliderValue % 100
-  // 返回该月的第一天
+// 将总月数转换为日期字符串 (YYYY-MM-01)
+const totalMonthsToDate = (months) => {
+  const year = startYear + Math.floor(months / 12)
+  const month = (months % 12) + 1
   return `${year}-${String(month).padStart(2, '0')}-01`
 }
 
+const sliderValue = ref(dateToTotalMonths(selectedDate.value))
+
+// 生成年份标记
+const marks = {}
+for (let year = startYear; year <= currentYear; year += 5) {
+  const monthIndex = (year - startYear) * 12
+  marks[monthIndex] = `${year}年`
+}
+
+const activeConflicts = computed(() => {
+  const result = store.getConflictsByDate(selectedDate.value)
+  console.log('当前选择日期:', selectedDate.value, '活跃冲突:', result.map(c => c.name))
+  return result
+})
+
 function formatDate(value) {
   if (typeof value === 'number') {
-    const year = Math.floor(value / 100)
-    const month = value % 100
+    const year = startYear + Math.floor(value / 12)
+    const month = (value % 12) + 1
     return `${year}年${month}月`
   }
   const date = new Date(value)
@@ -115,31 +115,33 @@ function formatTooltip(value) {
 }
 
 function onDateChange(value) {
-  selectedDate.value = sliderToDate(value)
+  selectedDate.value = totalMonthsToDate(value)
   store.setSelectedDate(selectedDate.value)
 }
 
 // 增加一个月
 function incrementDate() {
   const date = new Date(selectedDate.value)
+  if (isNaN(date.getTime())) return
   date.setMonth(date.getMonth() + 1)
   selectedDate.value = date.toISOString().split('T')[0]
-  sliderValue.value = dateToSlider(selectedDate.value)
+  sliderValue.value = dateToTotalMonths(selectedDate.value)
   store.setSelectedDate(selectedDate.value)
 }
 
 // 减少一个月
 function decrementDate() {
   const date = new Date(selectedDate.value)
+  if (isNaN(date.getTime())) return
   date.setMonth(date.getMonth() - 1)
   selectedDate.value = date.toISOString().split('T')[0]
-  sliderValue.value = dateToSlider(selectedDate.value)
+  sliderValue.value = dateToTotalMonths(selectedDate.value)
   store.setSelectedDate(selectedDate.value)
 }
 
 function resetToToday() {
   selectedDate.value = new Date().toISOString().split('T')[0]
-  sliderValue.value = dateToSlider(selectedDate.value)
+  sliderValue.value = dateToTotalMonths(selectedDate.value)
   store.setSelectedDate(selectedDate.value)
 }
 
@@ -170,12 +172,23 @@ const countryNames = {
   IRQ: '伊拉克',
   ISR: '以色列',
   SAU: '沙特阿拉伯',
+  VNM: '越南',
+  LAO: '老挝',
+  KHM: '柬埔寨',
+  AFG: '阿富汗',
+  SYR: '叙利亚',
+  TUR: '土耳其',
+  YEM: '也门',
   // 欧洲
   RUS: '俄罗斯',
   UKR: '乌克兰',
   GBR: '英国',
   DEU: '德国',
   FRA: '法国',
+  SRB: '塞尔维亚',
+  HRV: '克罗地亚',
+  BIH: '波黑',
+  SVN: '斯洛文尼亚',
   // 美洲
   USA: '美国',
   CAN: '加拿大',
@@ -183,11 +196,12 @@ const countryNames = {
   SDN: '苏丹',
   COD: '刚果（金）',
   COG: '刚果（布）',
+  RWA: '卢旺达',
+  DZA: '阿尔及利亚',
+  EGY: '埃及',
   // 中东
   PSE: '巴勒斯坦',
-  TUR: '土耳其',
-  SYR: '叙利亚',
-  YEM: '也门'
+  JOR: '约旦'
 }
 
 function getCountryName(code) {

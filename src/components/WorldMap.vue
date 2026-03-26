@@ -20,7 +20,7 @@
       v-model="dialogVisible"
       :title="selectedConflict?.name"
       width="600px"
-      @close="clearSelection()"
+      @close="handleDialogClose"
     >
       <div v-if="selectedConflict" class="conflict-detail">
         <div class="conflict-info">
@@ -192,7 +192,7 @@ const onCountryMouseOut = (e) => {
   const layer = e.target
   const countryCode = layer.feature.properties['ISO3166-1-Alpha-3'] || layer.feature.properties.A3
   const conflict = countryConflictMap.value[countryCode]
-  
+
   if (conflict) {
     layer.setStyle({
       weight: 2,
@@ -204,6 +204,11 @@ const onCountryMouseOut = (e) => {
       fillOpacity: 0.5
     })
   }
+}
+
+// 处理弹窗关闭
+const handleDialogClose = () => {
+  selectedConflict.value = null
 }
 
 const initMap = async () => {
