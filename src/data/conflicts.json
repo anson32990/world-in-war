@@ -561,6 +561,283 @@
           "event": "伊朗打击迪戈加西亚基地，双方接触停火方案"
         }
       ]
+    },
+    {
+      "id": "cambodian-genocide",
+      "name": "柬埔寨大屠杀",
+      "countries": ["KHM"],
+      "startDate": "1975-04-17",
+      "endDate": "1979-01-07",
+      "status": "ended",
+      "intensity": "high",
+      "description": "红色高棉政权统治柬埔寨期间实施的大规模屠杀和强制劳动，约 150-300 万人死亡，占当时柬埔寨人口的四分之一。",
+      "casualties": {
+        "military": "约 100,000",
+        "civilian": "约 1,500,000 - 3,000,000",
+        "displaced": "约 300 万"
+      },
+      "timeline": [
+        {
+          "date": "1975-04-17",
+          "event": "红色高棉占领金边"
+        },
+        {
+          "date": "1975-1976",
+          "event": "强制迁移城市人口到农村"
+        },
+        {
+          "date": "1978-1979",
+          "event": "越南入侵柬埔寨"
+        },
+        {
+          "date": "1979-01-07",
+          "event": "红色高棉政权垮台"
+        }
+      ]
+    },
+    {
+      "id": "chechen-wars",
+      "name": "车臣战争",
+      "countries": ["RUS"],
+      "startDate": "1994-12-11",
+      "endDate": "2009-04-16",
+      "status": "ended",
+      "intensity": "high",
+      "description": "俄罗斯联邦与车臣分离主义势力之间的两次战争，包括第一次车臣战争 (1994-1996) 和第二次车臣战争 (1999-2009)。",
+      "casualties": {
+        "military": "约 80,000",
+        "civilian": "约 150,000",
+        "displaced": "约 50 万"
+      },
+      "timeline": [
+        {
+          "date": "1994-12-11",
+          "event": "第一次车臣战争爆发"
+        },
+        {
+          "date": "1996-08-31",
+          "event": "第一次车臣战争结束，车臣获得事实独立"
+        },
+        {
+          "date": "1999-08-26",
+          "event": "第二次车臣战争爆发"
+        },
+        {
+          "date": "2009-04-16",
+          "event": "反恐行动正式结束"
+        }
+      ]
+    },
+    {
+      "id": "somali-civil-war",
+      "name": "索马里内战",
+      "countries": ["SOM"],
+      "startDate": "1991-01-26",
+      "endDate": null,
+      "status": "active",
+      "intensity": "medium",
+      "description": "索马里自 1991 年西亚德政权倒台后持续的武装冲突，涉及多个派系、军阀和极端组织，包括青年党。",
+      "casualties": {
+        "military": "约 50,000",
+        "civilian": "约 500,000+",
+        "displaced": "约 200 万"
+      },
+      "timeline": [
+        {
+          "date": "1991-01-26",
+          "event": "西亚德政权倒台，内战爆发"
+        },
+        {
+          "date": "1992-1995",
+          "event": "联合国和美国干预"
+        },
+        {
+          "date": "2006-2009",
+          "event": "伊斯兰法院联盟与政府军交战"
+        }
+      ]
+    },
+    {
+      "id": "libyan-civil-war",
+      "name": "利比亚内战",
+      "countries": ["LBY"],
+      "startDate": "2011-02-15",
+      "endDate": "2011-10-20",
+      "status": "ended",
+      "intensity": "high",
+      "description": "利比亚反对派在北约支持下推翻卡扎菲政权的战争。卡扎菲战败身亡，但利比亚陷入长期分裂。",
+      "casualties": {
+        "military": "约 30,000",
+        "civilian": "约 10,000",
+        "displaced": "约 100 万"
+      },
+      "timeline": [
+        {
+          "date": "2011-02-15",
+          "event": "反政府抗议演变为武装冲突"
+        },
+        {
+          "date": "2011-03-19",
+          "event": "北约开始军事干预"
+        },
+        {
+          "date": "2011-10-20",
+          "event": "卡扎菲被杀，战争结束"
+        }
+      ]
+    },
+    {
+      "id": "syrian-civil-war",
+      "name": "叙利亚内战",
+      "countries": ["SYR"],
+      "startDate": "2011-03-15",
+      "endDate": null,
+      "status": "active",
+      "intensity": "high",
+      "description": "叙利亚反对派与阿萨德政府之间的内战，涉及 ISIS、库尔德武装、俄罗斯、美国、伊朗、土耳其等多方势力。",
+      "casualties": {
+        "military": "约 200,000",
+        "civilian": "约 400,000+",
+        "displaced": "约 1,300 万"
+      },
+      "timeline": [
+        {
+          "date": "2011-03-15",
+          "event": "反政府抗议开始"
+        },
+        {
+          "date": "2014-06-29",
+          "event": "ISIS 宣布建立哈里发国"
+        },
+        {
+          "date": "2015-09-30",
+          "event": "俄罗斯军事介入"
+        },
+        {
+          "date": "2019-03-23",
+          "event": "ISIS 失去最后据点"
+        }
+      ]
+    },
+    {
+      "id": "yemen-civil-war",
+      "name": "也门内战",
+      "countries": ["YEM"],
+      "startDate": "2014-09-10",
+      "endDate": null,
+      "status": "active",
+      "intensity": "high",
+      "description": "也门政府与胡塞武装之间的内战，沙特领导的多国联军介入支持政府军。造成全球最严重的人道主义危机。",
+      "casualties": {
+        "military": "约 100,000",
+        "civilian": "约 270,000+",
+        "displaced": "约 400 万"
+      },
+      "timeline": [
+        {
+          "date": "2014-09-10",
+          "event": "胡塞武装占领首都萨那"
+        },
+        {
+          "date": "2015-03-26",
+          "event": "沙特领导的多国联军开始军事干预"
+        },
+        {
+          "date": "2018-12-13",
+          "event": "斯德哥尔摩协议签署"
+        }
+      ]
+    },
+    {
+      "id": "nagorno-karabakh-war",
+      "name": "纳戈尔诺 - 卡拉巴赫战争",
+      "countries": ["AZE", "ARM"],
+      "startDate": "1988-02-20",
+      "endDate": "1994-05-12",
+      "status": "ended",
+      "intensity": "medium",
+      "description": "阿塞拜疆与亚美尼亚为争夺纳戈尔诺 - 卡拉巴赫地区主权爆发的战争。2020 年再次爆发冲突。",
+      "casualties": {
+        "military": "约 30,000",
+        "civilian": "约 10,000",
+        "displaced": "约 100 万"
+      },
+      "timeline": [
+        {
+          "date": "1988-02-20",
+          "event": "纳卡地区要求并入亚美尼亚"
+        },
+        {
+          "date": "1991-09-02",
+          "event": "纳卡共和国宣布独立"
+        },
+        {
+          "date": "1994-05-12",
+          "event": "停火协议签署"
+        }
+      ]
+    },
+    {
+      "id": "ethiopian-civil-war",
+      "name": "埃塞俄比亚内战",
+      "countries": ["ETH"],
+      "startDate": "1974-01-12",
+      "endDate": "1991-05-28",
+      "status": "ended",
+      "intensity": "high",
+      "description": "埃塞俄比亚帝国推翻后，门格斯图军政府与各路反政府武装的长期内战，包括厄立特里亚独立战争。",
+      "casualties": {
+        "military": "约 500,000",
+        "civilian": "约 1,000,000",
+        "displaced": "约 50 万"
+      },
+      "timeline": [
+        {
+          "date": "1974-09-12",
+          "event": "海尔·塞拉西皇帝被废黜"
+        },
+        {
+          "date": "1977-1978",
+          "event": "红色恐怖时期"
+        },
+        {
+          "date": "1991-05-28",
+          "event": "门格斯图政权倒台"
+        }
+      ]
+    },
+    {
+      "id": "timor-independence",
+      "name": "东帝汶独立战争",
+      "countries": ["TLS", "IDN"],
+      "startDate": "1975-12-07",
+      "endDate": "1999-10-31",
+      "status": "ended",
+      "intensity": "medium",
+      "description": "东帝汶反抗印度尼西亚占领的独立斗争。1999 年公投后获得独立，2002 年正式成立东帝汶民主共和国。",
+      "casualties": {
+        "military": "约 5,000",
+        "civilian": "约 100,000 - 200,000",
+        "displaced": "约 30 万"
+      },
+      "timeline": [
+        {
+          "date": "1975-12-07",
+          "event": "印尼入侵东帝汶"
+        },
+        {
+          "date": "1991-11-12",
+          "event": "帝力大屠杀"
+        },
+        {
+          "date": "1999-08-30",
+          "event": "独立公投"
+        },
+        {
+          "date": "1999-10-31",
+          "event": "印尼军队撤离"
+        }
+      ]
     }
   ],
   "lastUpdated": "2026-03-26"

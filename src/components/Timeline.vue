@@ -179,6 +179,8 @@ const countryNames = {
   SYR: '叙利亚',
   TUR: '土耳其',
   YEM: '也门',
+  IDN: '印度尼西亚',
+  TLS: '东帝汶',
   // 欧洲
   RUS: '俄罗斯',
   UKR: '乌克兰',
@@ -189,6 +191,8 @@ const countryNames = {
   HRV: '克罗地亚',
   BIH: '波黑',
   SVN: '斯洛文尼亚',
+  AZE: '阿塞拜疆',
+  ARM: '亚美尼亚',
   // 美洲
   USA: '美国',
   CAN: '加拿大',
@@ -199,6 +203,9 @@ const countryNames = {
   RWA: '卢旺达',
   DZA: '阿尔及利亚',
   EGY: '埃及',
+  SOM: '索马里',
+  LBY: '利比亚',
+  ETH: '埃塞俄比亚',
   // 中东
   PSE: '巴勒斯坦',
   JOR: '约旦'
