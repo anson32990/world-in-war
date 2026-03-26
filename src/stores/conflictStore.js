@@ -25,11 +25,30 @@ export const useConflictStore = defineStore('conflict', () => {
 
   function getConflictsByDate(date) {
     const targetDate = new Date(date)
+    const targetYear = targetDate.getFullYear()
+    const targetMonth = targetDate.getMonth()
+    
     return conflicts.value.filter(conflict => {
       const startDate = new Date(conflict.startDate)
       const endDate = conflict.endDate ? new Date(conflict.endDate) : null
-      if (startDate > targetDate) return false
-      if (endDate && endDate < targetDate) return false
+      
+      const startYear = startDate.getFullYear()
+      const startMonth = startDate.getMonth()
+      
+      // 检查是否在开始日期之前
+      if (targetYear < startYear || (targetYear === startYear && targetMonth < startMonth)) {
+        return false
+      }
+      
+      // 检查是否在结束日期之后
+      if (endDate) {
+        const endYear = endDate.getFullYear()
+        const endMonth = endDate.getMonth()
+        if (targetYear > endYear || (targetYear === endYear && targetMonth > endMonth)) {
+          return false
+        }
+      }
+      
       return true
     })
   }

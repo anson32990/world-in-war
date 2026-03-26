@@ -20,9 +20,9 @@
       />
       
       <div class="timeline-controls">
-        <el-button @click="decrementDate" :icon="Minus">前一天</el-button>
-        <el-button @click="resetToToday">回到今天</el-button>
-        <el-button @click="incrementDate" :icon="Plus">后一天</el-button>
+        <el-button @click="decrementDate" :icon="Minus">上一月</el-button>
+        <el-button @click="resetToToday">回到本月</el-button>
+        <el-button @click="incrementDate" :icon="Plus">下一月</el-button>
       </div>
       
       <div class="active-conflicts-info">
@@ -65,20 +65,21 @@ import { Minus, Plus } from '@element-plus/icons-vue'
 const store = useConflictStore()
 const selectedDate = ref(new Date().toISOString().split('T')[0])
 
-const minDate = 20200101
-const maxDate = 20261231
-const stepValue = 1
+// 从 1945 年（二战结束）开始
+const startYear = 1945
+const currentYear = new Date().getFullYear()
+
+// 转换为月份滑块值 (YYYYMM 格式)
+const minDate = startYear * 100 + 1  // 194501 = 1945 年 1 月
+const maxDate = currentYear * 100 + 12  // 202612 = 2026 年 12 月
+const stepValue = 1  // 每次移动 1 个月
 
 const sliderValue = ref(dateToSlider(selectedDate.value))
 
-const marks = {
-  20200101: '2020',
-  20210101: '2021',
-  20220101: '2022',
-  20230101: '2023',
-  20240101: '2024',
-  20250101: '2025',
-  20260101: '2026'
+// 生成月份标记
+const marks = {}
+for (let year = startYear; year <= currentYear; year += 5) {
+  marks[year * 100 + 1] = `${year}年`
 }
 
 const activeConflicts = computed(() => {
@@ -87,25 +88,26 @@ const activeConflicts = computed(() => {
 
 function dateToSlider(dateStr) {
   const date = new Date(dateStr)
-  return date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate()
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  return year * 100 + month
 }
 
 function sliderToDate(sliderValue) {
-  const year = Math.floor(sliderValue / 10000)
-  const month = Math.floor((sliderValue % 10000) / 100) - 1
-  const day = sliderValue % 100
-  const date = new Date(year, month, day)
-  return date.toISOString().split('T')[0]
+  const year = Math.floor(sliderValue / 100)
+  const month = sliderValue % 100
+  // 返回该月的第一天
+  return `${year}-${String(month).padStart(2, '0')}-01`
 }
 
 function formatDate(value) {
   if (typeof value === 'number') {
-    const year = Math.floor(value / 10000)
-    const month = Math.floor((value % 10000) / 100)
-    const day = value % 100
-    return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`
+    const year = Math.floor(value / 100)
+    const month = value % 100
+    return `${year}年${month}月`
   }
-  return value
+  const date = new Date(value)
+  return `${date.getFullYear()}年${date.getMonth() + 1}月`
 }
 
 function formatTooltip(value) {
@@ -117,17 +119,19 @@ function onDateChange(value) {
   store.setSelectedDate(selectedDate.value)
 }
 
+// 增加一个月
 function incrementDate() {
   const date = new Date(selectedDate.value)
-  date.setDate(date.getDate() + 1)
+  date.setMonth(date.getMonth() + 1)
   selectedDate.value = date.toISOString().split('T')[0]
   sliderValue.value = dateToSlider(selectedDate.value)
   store.setSelectedDate(selectedDate.value)
 }
 
+// 减少一个月
 function decrementDate() {
   const date = new Date(selectedDate.value)
-  date.setDate(date.getDate() - 1)
+  date.setMonth(date.getMonth() - 1)
   selectedDate.value = date.toISOString().split('T')[0]
   sliderValue.value = dateToSlider(selectedDate.value)
   store.setSelectedDate(selectedDate.value)

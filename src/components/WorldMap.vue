@@ -75,6 +75,7 @@ const dialogVisible = ref(false)
 let map = null
 const geoJsonLayer = ref(null)
 const selectedConflict = ref(null)
+let geoJsonData = ref(null)  // 存储 GeoJSON 数据
 
 const intensityColors = {
   high: '#e94560',
@@ -82,11 +83,35 @@ const intensityColors = {
   low: '#3498db'
 }
 
-// 创建国家代码到冲突的映射
+// 创建国家代码到冲突的映射（根据当前选中日期）
 const countryConflictMap = computed(() => {
   const map = {}
+  const date = store.selectedDate
+  const targetDate = new Date(date)
+  const targetYear = targetDate.getFullYear()
+  const targetMonth = targetDate.getMonth()
+  
   store.conflicts.forEach(conflict => {
-    if (conflict.status !== 'active') return
+    // 只处理活跃冲突或在该日期存在的冲突
+    const startDate = new Date(conflict.startDate)
+    const endDate = conflict.endDate ? new Date(conflict.endDate) : null
+    const startYear = startDate.getFullYear()
+    const startMonth = startDate.getMonth()
+    
+    // 检查是否在该日期之前开始
+    if (targetYear < startYear || (targetYear === startYear && targetMonth < startMonth)) {
+      return
+    }
+    
+    // 检查是否在该日期之后结束
+    if (endDate) {
+      const endYear = endDate.getFullYear()
+      const endMonth = endDate.getMonth()
+      if (targetYear > endYear || (targetYear === endYear && targetMonth > endMonth)) {
+        return
+      }
+    }
+    
     conflict.countries.forEach(code => {
       if (!map[code]) {
         map[code] = conflict
@@ -206,9 +231,9 @@ const initMap = async () => {
   // 加载本地 GeoJSON 数据
   try {
     const response = await fetch('/countries.geojson')
-    const geoData = await response.json()
+    geoJsonData.value = await response.json()
     
-    geoJsonLayer.value = L.geoJSON(geoData, {
+    geoJsonLayer.value = L.geoJSON(geoJsonData.value, {
       style: getCountryStyle,
       onEachFeature: (feature, layer) => {
         layer.on({
@@ -216,12 +241,12 @@ const initMap = async () => {
           mouseover: onCountryMouseOver,
           mouseout: onCountryMouseOut
         })
-        
+
         // 添加提示
         const countryName = feature.properties.name || ''
         const countryCode = feature.properties['ISO3166-1-Alpha-3'] || ''
         const conflict = countryConflictMap.value[countryCode]
-        
+
         if (conflict) {
           layer.bindTooltip(`${countryName}\n${conflict.name}`, {
             permanent: false,
@@ -240,9 +265,9 @@ watch(() => store.selectedDate, () => {
   if (geoJsonLayer.value) {
     map.removeLayer(geoJsonLayer.value)
   }
-  
-  if (map && geoJsonLayer.value) {
-    geoJsonLayer.value = L.geoJSON(geoJsonLayer.value.toGeoJSON(), {
+
+  if (map && geoJsonData.value) {
+    geoJsonLayer.value = L.geoJSON(geoJsonData.value, {
       style: getCountryStyle,
       onEachFeature: (feature, layer) => {
         layer.on({
@@ -250,6 +275,18 @@ watch(() => store.selectedDate, () => {
           mouseover: onCountryMouseOver,
           mouseout: onCountryMouseOut
         })
+
+        // 添加提示
+        const countryName = feature.properties.name || ''
+        const countryCode = feature.properties['ISO3166-1-Alpha-3'] || ''
+        const conflict = countryConflictMap.value[countryCode]
+
+        if (conflict) {
+          layer.bindTooltip(`${countryName}\n${conflict.name}`, {
+            permanent: false,
+            direction: 'top'
+          })
+        }
       }
     }).addTo(map)
   }
