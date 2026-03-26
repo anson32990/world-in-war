@@ -156,17 +156,42 @@ function getIntensityLabel(intensity) {
 
 // ISO 国家代码到中文名称映射
 const countryNames = {
-  UKR: '乌克兰',
-  RUS: '俄罗斯',
-  ISR: '以色列',
-  PSE: '巴勒斯坦',
-  SDN: '苏丹',
+  // 亚洲
+  CHN: '中国',
+  JPN: '日本',
+  KOR: '韩国',
+  PRK: '朝鲜',
   MMR: '缅甸',
-  COD: '刚果（金）'
+  IRN: '伊朗',
+  IRQ: '伊拉克',
+  ISR: '以色列',
+  SAU: '沙特阿拉伯',
+  // 欧洲
+  RUS: '俄罗斯',
+  UKR: '乌克兰',
+  GBR: '英国',
+  DEU: '德国',
+  FRA: '法国',
+  // 美洲
+  USA: '美国',
+  CAN: '加拿大',
+  // 非洲
+  SDN: '苏丹',
+  COD: '刚果（金）',
+  COG: '刚果（布）',
+  // 中东
+  PSE: '巴勒斯坦',
+  TUR: '土耳其',
+  SYR: '叙利亚',
+  YEM: '也门'
+}
+
+function getCountryName(code) {
+  return countryNames[code] || code
 }
 
 function getCountryNames(codes) {
-  return codes.map(code => countryNames[code] || code).join(' / ')
+  return codes.map(code => getCountryName(code)).join(' / ')
 }
 
 onMounted(() => {

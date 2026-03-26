@@ -88,11 +88,16 @@ const countryConflictMap = computed(() => {
   store.conflicts.forEach(conflict => {
     if (conflict.status !== 'active') return
     conflict.countries.forEach(code => {
-      if (!map[code] || conflict.intensity === 'high') {
+      if (!map[code]) {
+        map[code] = conflict
+      } else {
         // 高强度冲突优先显示
-        map[code] = conflict
-      } else if (map[code].intensity !== 'high' && conflict.intensity === 'medium') {
-        map[code] = conflict
+        const currentIntensity = map[code].intensity
+        const newIntensity = conflict.intensity
+        const intensityOrder = { high: 3, medium: 2, low: 1 }
+        if (intensityOrder[newIntensity] > intensityOrder[currentIntensity]) {
+          map[code] = conflict
+        }
       }
     })
   })
