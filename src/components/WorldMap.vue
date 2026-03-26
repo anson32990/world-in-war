@@ -4,13 +4,13 @@
       <h2>🗺️ 全球冲突地图</h2>
       <div class="legend">
         <span class="legend-item">
-          <span class="legend-dot high"></span> 高强度
+          <span class="legend-box high"></span> 高强度
         </span>
         <span class="legend-item">
-          <span class="legend-dot medium"></span> 中强度
+          <span class="legend-box medium"></span> 中强度
         </span>
         <span class="legend-item">
-          <span class="legend-dot low"></span> 低强度
+          <span class="legend-box low"></span> 低强度
         </span>
       </div>
     </div>
@@ -64,17 +64,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, watch, computed } from 'vue'
 import { useConflictStore } from '../stores/conflictStore'
-import 'leaflet'
+import * as L from 'leaflet'
 
 const mapContainer = ref(null)
 const store = useConflictStore()
 const dialogVisible = ref(false)
 
 let map = null
-const markers = []
-
+const geoJsonLayer = ref(null)
 const selectedConflict = ref(null)
 
 const intensityColors = {
@@ -82,6 +81,23 @@ const intensityColors = {
   medium: '#f39c12',
   low: '#3498db'
 }
+
+// 创建国家代码到冲突的映射
+const countryConflictMap = computed(() => {
+  const map = {}
+  store.conflicts.forEach(conflict => {
+    if (conflict.status !== 'active') return
+    conflict.countries.forEach(code => {
+      if (!map[code] || conflict.intensity === 'high') {
+        // 高强度冲突优先显示
+        map[code] = conflict
+      } else if (map[code].intensity !== 'high' && conflict.intensity === 'medium') {
+        map[code] = conflict
+      }
+    })
+  })
+  return map
+})
 
 const getIntensityType = (intensity) => {
   const types = { high: 'danger', medium: 'warning', low: 'primary' }
@@ -93,57 +109,145 @@ const getIntensityLabel = (intensity) => {
   return labels[intensity] || '未知'
 }
 
-const initMap = () => {
+const getCountryStyle = (feature) => {
+  const countryCode = feature.properties['ISO3166-1-Alpha-3'] || feature.properties.A3 || feature.properties.iso_a3
+  const conflict = countryConflictMap.value[countryCode]
+  
+  if (conflict) {
+    const color = intensityColors[conflict.intensity] || intensityColors.high
+    return {
+      fillColor: color,
+      fillOpacity: 0.7,
+      color: color,
+      weight: 2,
+      opacity: 1
+    }
+  }
+  
+  // 默认样式
+  return {
+    fillColor: '#3a3a5a',
+    fillOpacity: 0.5,
+    color: '#555',
+    weight: 1,
+    opacity: 0.8
+  }
+}
+
+const onCountryClick = (e) => {
+  const countryCode = e.target.feature.properties['ISO3166-1-Alpha-3'] || e.target.feature.properties.A3
+  const conflict = countryConflictMap.value[countryCode]
+  
+  if (conflict) {
+    selectedConflict.value = conflict
+    dialogVisible.value = true
+  }
+}
+
+const onCountryMouseOver = (e) => {
+  const layer = e.target
+  const countryCode = layer.feature.properties['ISO3166-1-Alpha-3'] || layer.feature.properties.A3
+  const conflict = countryConflictMap.value[countryCode]
+  
+  if (conflict) {
+    layer.setStyle({
+      weight: 3,
+      fillOpacity: 0.9
+    })
+    layer.bringToFront()
+  }
+}
+
+const onCountryMouseOut = (e) => {
+  const layer = e.target
+  const countryCode = layer.feature.properties['ISO3166-1-Alpha-3'] || layer.feature.properties.A3
+  const conflict = countryConflictMap.value[countryCode]
+  
+  if (conflict) {
+    layer.setStyle({
+      weight: 2,
+      fillOpacity: 0.7
+    })
+  } else {
+    layer.setStyle({
+      weight: 1,
+      fillOpacity: 0.5
+    })
+  }
+}
+
+const initMap = async () => {
   if (!mapContainer.value) return
 
-  map = L.map(mapContainer.value).setView([20, 0], 2)
+  map = L.map(mapContainer.value, {
+    center: [20, 0],
+    zoom: 2,
+    minZoom: 2,
+    maxZoom: 8,
+    zoomControl: false
+  })
 
+  L.control.zoom({
+    position: 'bottomright'
+  }).addTo(map)
+
+  // 深色地图底图
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+    attribution: '&copy; OpenStreetMap &copy; CARTO',
     subdomains: 'abcd',
     maxZoom: 19
   }).addTo(map)
 
-  addConflictMarkers()
-}
-
-const addConflictMarkers = () => {
-  markers.forEach(marker => marker.remove())
-  markers.length = 0
-
-  store.conflicts.forEach(conflict => {
-    if (conflict.status !== 'active') return
-
-    conflict.countries.forEach(countryCode => {
-      const country = store.countries[countryCode]
-      if (!country) return
-
-      const color = intensityColors[conflict.intensity] || '#e94560'
-      
-      const circle = L.circleMarker(country.coordinates, {
-        color: color,
-        fillColor: color,
-        fillOpacity: 0.6,
-        radius: 12
-      }).addTo(map)
-
-      circle.bindTooltip(`${country.name} - ${conflict.name}`, {
-        permanent: false,
-        direction: 'top'
-      })
-
-      circle.on('click', () => {
-        selectedConflict.value = conflict
-        dialogVisible.value = true
-      })
-
-      markers.push(circle)
-    })
-  })
+  // 加载本地 GeoJSON 数据
+  try {
+    const response = await fetch('/countries.geojson')
+    const geoData = await response.json()
+    
+    geoJsonLayer.value = L.geoJSON(geoData, {
+      style: getCountryStyle,
+      onEachFeature: (feature, layer) => {
+        layer.on({
+          click: onCountryClick,
+          mouseover: onCountryMouseOver,
+          mouseout: onCountryMouseOut
+        })
+        
+        // 添加提示
+        const countryName = feature.properties.name || ''
+        const countryCode = feature.properties['ISO3166-1-Alpha-3'] || ''
+        const conflict = countryConflictMap.value[countryCode]
+        
+        if (conflict) {
+          layer.bindTooltip(`${countryName}\n${conflict.name}`, {
+            permanent: false,
+            direction: 'top'
+          })
+        }
+      }
+    }).addTo(map)
+  } catch (error) {
+    console.error('加载 GeoJSON 失败:', error)
+  }
 }
 
 watch(() => store.selectedDate, () => {
-  addConflictMarkers()
+  // 重新渲染地图
+  if (geoJsonLayer.value) {
+    map.removeLayer(geoJsonLayer.value)
+  }
+  
+  if (map && geoJsonLayer.value) {
+    geoJsonLayer.value = L.geoJSON(geoJsonLayer.value.toGeoJSON(), {
+      style: getCountryStyle,
+      onEachFeature: (feature, layer) => {
+        layer.on({
+          click: onCountryClick,
+          mouseover: onCountryMouseOver,
+          mouseout: onCountryMouseOut
+        })
+      }
+    }).addTo(map)
+  }
 })
 
 onMounted(() => {
@@ -187,22 +291,22 @@ onMounted(() => {
   color: #aaa;
 }
 
-.legend-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+.legend-box {
+  width: 16px;
+  height: 16px;
   display: inline-block;
+  border-radius: 3px;
 }
 
-.legend-dot.high {
+.legend-box.high {
   background: #e94560;
 }
 
-.legend-dot.medium {
+.legend-box.medium {
   background: #f39c12;
 }
 
-.legend-dot.low {
+.legend-box.low {
   background: #3498db;
 }
 
@@ -230,5 +334,24 @@ onMounted(() => {
 
 :deep(.el-dialog__title) {
   color: #333;
+}
+
+/* Leaflet 样式覆盖 */
+:deep(.leaflet-control-zoom) {
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
+}
+
+:deep(.leaflet-control-zoom-in),
+:deep(.leaflet-control-zoom-out) {
+  background: rgba(22, 33, 62, 0.9) !important;
+  color: #eee !important;
+  border: none !important;
+}
+
+:deep(.leaflet-control-zoom-in:hover),
+:deep(.leaflet-control-zoom-out:hover) {
+  background: rgba(233, 69, 96, 0.9) !important;
+  color: #fff !important;
 }
 </style>

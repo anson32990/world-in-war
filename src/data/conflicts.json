@@ -3,7 +3,7 @@
     {
       "id": "russia-ukraine",
       "name": "俄乌冲突",
-      "countries": ["UA", "RU"],
+      "countries": ["UKR", "RUS"],
       "startDate": "2022-02-24",
       "endDate": null,
       "status": "active",
@@ -32,7 +32,7 @@
     {
       "id": "israel-palestine",
       "name": "以巴冲突",
-      "countries": ["IL", "PS"],
+      "countries": ["ISR", "PSE"],
       "startDate": "2023-10-07",
       "endDate": null,
       "status": "active",
@@ -61,7 +61,7 @@
     {
       "id": "sudan-conflict",
       "name": "苏丹内战",
-      "countries": ["SD"],
+      "countries": ["SDN"],
       "startDate": "2023-04-15",
       "endDate": null,
       "status": "active",
@@ -86,7 +86,7 @@
     {
       "id": "myanmar-civil-war",
       "name": "缅甸内战",
-      "countries": ["MM"],
+      "countries": ["MMR"],
       "startDate": "2021-02-01",
       "endDate": null,
       "status": "active",
@@ -115,7 +115,7 @@
     {
       "id": "drc-conflict",
       "name": "刚果（金）东部冲突",
-      "countries": ["CD"],
+      "countries": ["COD"],
       "startDate": "1996-01-01",
       "endDate": null,
       "status": "active",

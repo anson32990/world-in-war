@@ -154,8 +154,19 @@ function getIntensityLabel(intensity) {
   return labels[intensity] || '未知'
 }
 
+// ISO 国家代码到中文名称映射
+const countryNames = {
+  UKR: '乌克兰',
+  RUS: '俄罗斯',
+  ISR: '以色列',
+  PSE: '巴勒斯坦',
+  SDN: '苏丹',
+  MMR: '缅甸',
+  COD: '刚果（金）'
+}
+
 function getCountryNames(codes) {
-  return codes.map(code => store.countries[code]?.name || code).join(' / ')
+  return codes.map(code => countryNames[code] || code).join(' / ')
 }
 
 onMounted(() => {
