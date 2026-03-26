@@ -1,0 +1,142 @@
+{
+  "conflicts": [
+    {
+      "id": "russia-ukraine",
+      "name": "俄乌冲突",
+      "countries": ["UA", "RU"],
+      "startDate": "2022-02-24",
+      "endDate": null,
+      "status": "active",
+      "intensity": "high",
+      "description": "俄罗斯对乌克兰发动的全面军事行动，是二战以来欧洲最大规模的武装冲突。",
+      "casualties": {
+        "military": "约 500,000",
+        "civilian": "约 30,000+",
+        "displaced": "约 1,400 万"
+      },
+      "timeline": [
+        {
+          "date": "2022-02-24",
+          "event": "俄罗斯宣布对乌克兰进行特别军事行动"
+        },
+        {
+          "date": "2022-09-30",
+          "event": "乌克兰收复赫尔松地区"
+        },
+        {
+          "date": "2023-06-04",
+          "event": "乌克兰发动反攻"
+        }
+      ]
+    },
+    {
+      "id": "israel-palestine",
+      "name": "以巴冲突",
+      "countries": ["IL", "PS"],
+      "startDate": "2023-10-07",
+      "endDate": null,
+      "status": "active",
+      "intensity": "high",
+      "description": "哈马斯对以色列发动突袭后爆发的武装冲突，加沙地带遭受严重破坏。",
+      "casualties": {
+        "military": "约 5,000",
+        "civilian": "约 35,000+",
+        "displaced": "约 850 万"
+      },
+      "timeline": [
+        {
+          "date": "2023-10-07",
+          "event": "哈马斯发动阿克萨洪水行动"
+        },
+        {
+          "date": "2023-10-27",
+          "event": "以色列对加沙发动地面进攻"
+        },
+        {
+          "date": "2024-01-15",
+          "event": "停火谈判进行中"
+        }
+      ]
+    },
+    {
+      "id": "sudan-conflict",
+      "name": "苏丹内战",
+      "countries": ["SD"],
+      "startDate": "2023-04-15",
+      "endDate": null,
+      "status": "active",
+      "intensity": "medium",
+      "description": "苏丹武装部队与快速支援部队之间的武装冲突，导致严重的人道主义危机。",
+      "casualties": {
+        "military": "约 15,000",
+        "civilian": "约 15,000+",
+        "displaced": "约 800 万"
+      },
+      "timeline": [
+        {
+          "date": "2023-04-15",
+          "event": "苏丹武装部队与快速支援部队爆发冲突"
+        },
+        {
+          "date": "2023-11-01",
+          "event": "多方调停失败"
+        }
+      ]
+    },
+    {
+      "id": "myanmar-civil-war",
+      "name": "缅甸内战",
+      "countries": ["MM"],
+      "startDate": "2021-02-01",
+      "endDate": null,
+      "status": "active",
+      "intensity": "medium",
+      "description": "2021 年军事政变后，缅甸军方与人民防卫军及其他武装组织的持续冲突。",
+      "casualties": {
+        "military": "约 10,000",
+        "civilian": "约 5,000+",
+        "displaced": "约 200 万"
+      },
+      "timeline": [
+        {
+          "date": "2021-02-01",
+          "event": "缅甸军方发动政变"
+        },
+        {
+          "date": "2021-04-16",
+          "event": "人民防卫军成立"
+        },
+        {
+          "date": "2023-10-27",
+          "event": "1027 行动爆发"
+        }
+      ]
+    },
+    {
+      "id": "drc-conflict",
+      "name": "刚果（金）东部冲突",
+      "countries": ["CD"],
+      "startDate": "1996-01-01",
+      "endDate": null,
+      "status": "active",
+      "intensity": "medium",
+      "description": "刚果民主共和国东部地区持续的武装冲突，涉及 M23 叛军等多方势力。",
+      "casualties": {
+        "military": "未知",
+        "civilian": "约 100,000+",
+        "displaced": "约 700 万"
+      },
+      "timeline": [
+        {
+          "date": "2022-03-27",
+          "event": "M23 叛军恢复活动"
+        },
+        {
+          "date": "2023-05-01",
+          "event": "政府宣布紧急状态"
+        }
+      ]
+    }
+  ],
+  "lastUpdated": "2026-03-26"
+}
