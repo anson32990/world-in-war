@@ -25,7 +25,7 @@
     </main>
 
     <footer class="footer">
-      <p>World in War © 2026 - 数据来源于公开资料，仅供参考</p>
+      <p>World in War © 2026 - 数据来源于公开资料或AI生成，仅供参考</p>
     </footer>
   </div>
 </template>
