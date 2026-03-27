@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 /.qwen
+
+# Deploy config
+.deploy.env

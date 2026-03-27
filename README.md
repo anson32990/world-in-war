@@ -90,9 +90,36 @@ npm run preview
 
 ## 部署
 
-1. 构建命令：`npm run build`
-2. 输出目录：`dist`
-3. 将 `dist` 目录内容部署到 Web 服务器
+### 第 1 步：创建配置文件
+
+复制配置文件：
+```bash
+cp .deploy.env.example .deploy.env
+```
+编辑 `.deploy.env` 文件，填入正确的配置。
+
+### 第 2 步：配置 SSH 密钥
+
+确保已配置 SSH 密钥到服务器。
+
+**测试连接：**
+```bash
+ssh root@{IP} -p 22
+```
+
+如果无需密码即可登录，说明配置成功。
+
+### 第 3 步：一键部署
+
+```bash
+npm run deploy
+```
+
+脚本会自动：
+1. ✅ 读取 `.deploy.env` 配置
+2. ✅ 构建项目
+3. ✅ 上传到服务器
+4. ✅ 完成部署
 
 ## 地图数据来源
 
