@@ -1,16 +1,16 @@
 {
   "conflicts": [
     {
-      "id": "korean-war",
+      "id": "KRean-war",
       "name": "朝鲜战争",
-      "countries": ["PRK", "KOR", "USA", "CHN"],
+      "countries": ["KP", "KR", "US", "CN"],
       "startDate": "1950-06-25",
       "endDate": "1953-07-27",
       "status": "ended",
       "intensity": "high",
       "description": "朝鲜半岛北南双方及中、美等多国参与的大规模战争，是冷战背景下的第一场热战。战争以三八线为界形成停战局面。",
       "casualties": {
-        "military": "约 1,200,000",
+        "milITry": "约 1,200,000",
         "civilian": "约 2,000,000+",
         "displaced": "约 500 万"
       },
@@ -36,14 +36,14 @@
     {
       "id": "vietnam-war",
       "name": "越南战争",
-      "countries": ["VNM", "USA", "LAO", "KHM"],
+      "countries": ["VN", "US", "LA", "KH"],
       "startDate": "1955-11-01",
       "endDate": "1975-04-30",
       "status": "ended",
       "intensity": "high",
       "description": "北越及越共与美国支持的南越之间的战争，美国深度介入。战争以北越统一越南告终，是冷战时期最漫长的战争之一。",
       "casualties": {
-        "military": "约 1,300,000",
+        "milITry": "约 1,300,000",
         "civilian": "约 2,000,000",
         "displaced": "约 300 万"
       },
@@ -69,14 +69,14 @@
     {
       "id": "algerian-war",
       "name": "阿尔及利亚战争",
-      "countries": ["DZA", "FRA"],
+      "countries": ["DZ", "FR"],
       "startDate": "1954-11-01",
       "endDate": "1962-07-05",
       "status": "ended",
       "intensity": "high",
       "description": "阿尔及利亚民族解放阵线反抗法国殖民统治的独立战争，最终阿尔及利亚获得独立。",
       "casualties": {
-        "military": "约 50,000",
+        "milITry": "约 50,000",
         "civilian": "约 500,000 - 1,500,000",
         "displaced": "约 200 万"
       },
@@ -102,14 +102,14 @@
     {
       "id": "six-day-war",
       "name": "六日战争",
-      "countries": ["ISR", "EGY", "SYR", "JOR"],
+      "countries": ["IL", "EG", "SY", "JO"],
       "startDate": "1967-06-05",
       "endDate": "1967-06-10",
       "status": "ended",
       "intensity": "high",
       "description": "以色列对埃及、叙利亚、约旦等阿拉伯国家发动的闪电战，以色列占领西奈半岛、戈兰高地、约旦河西岸和加沙地带。",
       "casualties": {
-        "military": "约 25,000",
+        "milITry": "约 25,000",
         "civilian": "约 10,000",
         "displaced": "约 50 万"
       },
@@ -131,14 +131,14 @@
     {
       "id": "yom-kippur-war",
       "name": "赎罪日战争",
-      "countries": ["ISR", "EGY", "SYR"],
+      "countries": ["IL", "EG", "SY"],
       "startDate": "1973-10-06",
       "endDate": "1973-10-25",
       "status": "ended",
       "intensity": "high",
       "description": "埃及和叙利亚在犹太教赎罪日对以色列发动突然袭击，试图收复六日战争中失去的领土。战争引发石油危机。",
       "casualties": {
-        "military": "约 20,000",
+        "milITry": "约 20,000",
         "civilian": "约 5,000",
         "displaced": "约 10 万"
       },
@@ -158,16 +158,16 @@
       ]
     },
     {
-      "id": "soviet-afghan-war",
+      "id": "soviet-AFhan-war",
       "name": "苏联入侵阿富汗",
-      "countries": ["AFG", "RUS"],
+      "countries": ["AF", "RU"],
       "startDate": "1979-12-24",
       "endDate": "1989-02-15",
       "status": "ended",
       "intensity": "high",
       "description": "苏联入侵阿富汗支持亲苏政权，遭到阿富汗圣战者抵抗。美国、巴基斯坦、沙特等支持圣战者。苏联最终撤军，此战被称为「苏联的越南」。",
       "casualties": {
-        "military": "约 100,000",
+        "milITry": "约 100,000",
         "civilian": "约 1,000,000",
         "displaced": "约 600 万"
       },
@@ -189,14 +189,14 @@
     {
       "id": "iran-iraq-war",
       "name": "两伊战争",
-      "countries": ["IRN", "IRQ"],
+      "countries": ["IR", "IQ"],
       "startDate": "1980-09-22",
       "endDate": "1988-08-20",
       "status": "ended",
       "intensity": "high",
       "description": "伊朗与伊拉克之间长达 8 年的战争，是 20 世纪最血腥的战争之一。双方使用化学武器，造成巨大伤亡。",
       "casualties": {
-        "military": "约 1,000,000",
+        "milITry": "约 1,000,000",
         "civilian": "约 500,000",
         "displaced": "约 200 万"
       },
@@ -222,14 +222,14 @@
     {
       "id": "gulf-war",
       "name": "海湾战争",
-      "countries": ["IRQ", "USA", "GBR", "FRA", "SAU"],
+      "countries": ["IQ", "US", "GB", "FR", "SA"],
       "startDate": "1990-08-02",
       "endDate": "1991-02-28",
       "status": "ended",
       "intensity": "high",
       "description": "伊拉克入侵科威特后，以美国为首的多国部队发动「沙漠风暴行动」解放科威特。这是第一场大规模高科技战争。",
       "casualties": {
-        "military": "约 50,000",
+        "milITry": "约 50,000",
         "civilian": "约 100,000",
         "displaced": "约 100 万"
       },
@@ -255,14 +255,14 @@
     {
       "id": "yugoslav-wars",
       "name": "南斯拉夫内战",
-      "countries": ["SRB", "HRV", "BIH", "SVN"],
+      "countries": ["RS", "HR", "BA", "SI"],
       "startDate": "1991-03-31",
       "endDate": "2001-11-13",
       "status": "ended",
       "intensity": "high",
       "description": "南斯拉夫解体过程中爆发的系列战争，包括克罗地亚战争、波黑战争、科索沃战争等。战争涉及种族清洗和大规模人道主义危机。",
       "casualties": {
-        "military": "约 200,000",
+        "milITry": "约 200,000",
         "civilian": "约 140,000",
         "displaced": "约 400 万"
       },
@@ -286,16 +286,16 @@
       ]
     },
     {
-      "id": "rwanda-genocide",
+      "id": "RWnda-genocide",
       "name": "卢旺达大屠杀",
-      "countries": ["RWA"],
+      "countries": ["RW"],
       "startDate": "1994-04-07",
       "endDate": "1994-07-15",
       "status": "ended",
       "intensity": "high",
       "description": "胡图族极端分子对图西族及温和派胡图族的大规模屠杀，100 天内约 80-100 万人遇害，是 20 世纪最严重的种族灭绝事件。",
       "casualties": {
-        "military": "约 10,000",
+        "milITry": "约 10,000",
         "civilian": "约 800,000 - 1,000,000",
         "displaced": "约 200 万"
       },
@@ -319,16 +319,16 @@
       ]
     },
     {
-      "id": "afghanistan-war",
+      "id": "AFhanistan-war",
       "name": "阿富汗战争 (2001-2021)",
-      "countries": ["AFG", "USA", "GBR"],
+      "countries": ["AF", "US", "GB"],
       "startDate": "2001-10-07",
       "endDate": "2021-08-30",
       "status": "ended",
       "intensity": "high",
       "description": "美国及其盟友以打击基地组织和塔利班政权为由入侵阿富汗。这是美国历史上最漫长的战争，最终以塔利班重新掌权告终。",
       "casualties": {
-        "military": "约 176,000",
+        "milITry": "约 176,000",
         "civilian": "约 46,000",
         "displaced": "约 600 万"
       },
@@ -352,16 +352,16 @@
       ]
     },
     {
-      "id": "russia-ukraine",
+      "id": "RUsia-UAaine",
       "name": "俄乌冲突",
-      "countries": ["UKR", "RUS"],
+      "countries": ["UA", "RU"],
       "startDate": "2022-02-24",
       "endDate": null,
       "status": "active",
       "intensity": "high",
       "description": "俄罗斯对乌克兰发动的全面军事行动，是二战以来欧洲最大规模的武装冲突。",
       "casualties": {
-        "military": "约 500,000",
+        "milITry": "约 500,000",
         "civilian": "约 30,000+",
         "displaced": "约 1,400 万"
       },
@@ -381,16 +381,16 @@
       ]
     },
     {
-      "id": "israel-palestine",
+      "id": "ILael-palestine",
       "name": "以巴冲突",
-      "countries": ["ISR", "PSE"],
+      "countries": ["IL", "PS"],
       "startDate": "2023-10-07",
       "endDate": null,
       "status": "active",
       "intensity": "high",
       "description": "哈马斯对以色列发动突袭后爆发的武装冲突，加沙地带遭受严重破坏。",
       "casualties": {
-        "military": "约 5,000",
+        "milITry": "约 5,000",
         "civilian": "约 35,000+",
         "displaced": "约 850 万"
       },
@@ -412,14 +412,14 @@
     {
       "id": "sudan-conflict",
       "name": "苏丹内战",
-      "countries": ["SDN"],
+      "countries": ["SD"],
       "startDate": "2023-04-15",
       "endDate": null,
       "status": "active",
       "intensity": "medium",
       "description": "苏丹武装部队与快速支援部队之间的武装冲突，导致严重的人道主义危机。",
       "casualties": {
-        "military": "约 15,000",
+        "milITry": "约 15,000",
         "civilian": "约 15,000+",
         "displaced": "约 800 万"
       },
@@ -437,14 +437,14 @@
     {
       "id": "myanmar-civil-war",
       "name": "缅甸内战",
-      "countries": ["MMR"],
+      "countries": ["MM"],
       "startDate": "2021-02-01",
       "endDate": null,
       "status": "active",
       "intensity": "medium",
       "description": "2021 年军事政变后，缅甸军方与人民防卫军及其他武装组织的持续冲突。",
       "casualties": {
-        "military": "约 10,000",
+        "milITry": "约 10,000",
         "civilian": "约 5,000+",
         "displaced": "约 200 万"
       },
@@ -466,14 +466,14 @@
     {
       "id": "drc-conflict",
       "name": "刚果（金）东部冲突",
-      "countries": ["COD"],
+      "countries": ["CD"],
       "startDate": "1996-01-01",
       "endDate": null,
       "status": "active",
       "intensity": "medium",
       "description": "刚果民主共和国东部地区持续的武装冲突，涉及 M23 叛军等多方势力。",
       "casualties": {
-        "military": "未知",
+        "milITry": "未知",
         "civilian": "约 100,000+",
         "displaced": "约 700 万"
       },
@@ -491,14 +491,14 @@
     {
       "id": "iraq-war-2003",
       "name": "伊拉克战争 (2003-2011)",
-      "countries": ["IRQ", "USA", "GBR"],
+      "countries": ["IQ", "US", "GB"],
       "startDate": "2003-03-20",
       "endDate": "2011-12-18",
       "status": "ended",
       "intensity": "high",
       "description": "以美国为首的多国联军入侵伊拉克，推翻萨达姆政权的战争。战争导致伊拉克长期动荡，ISIS 等极端组织崛起。",
       "casualties": {
-        "military": "约 100,000+",
+        "milITry": "约 100,000+",
         "civilian": "约 180,000 - 200,000",
         "displaced": "约 600 万"
       },
@@ -526,16 +526,16 @@
       ]
     },
     {
-      "id": "us-israel-iran-2026",
+      "id": "us-ILael-iran-2026",
       "name": "2·28 美以袭击伊朗事件",
-      "countries": ["USA", "ISR", "IRN"],
+      "countries": ["US", "IL", "IR"],
       "startDate": "2026-02-28",
       "endDate": null,
       "status": "active",
       "intensity": "high",
       "description": "美国与以色列联合对伊朗发动代号为「史诗怒火」和「咆哮的狮子」的军事打击，旨在推翻伊朗政权及消除核威胁。伊朗发起「真实承诺 -4」行动反击。冲突涉及大规模空袭、导弹互射、海上交战及网络攻击。",
       "casualties": {
-        "military": "约 200+",
+        "milITry": "约 200+",
         "civilian": "约 1,750+",
         "displaced": "未知"
       },
@@ -565,14 +565,14 @@
     {
       "id": "cambodian-genocide",
       "name": "柬埔寨大屠杀",
-      "countries": ["KHM"],
+      "countries": ["KH"],
       "startDate": "1975-04-17",
       "endDate": "1979-01-07",
       "status": "ended",
       "intensity": "high",
       "description": "红色高棉政权统治柬埔寨期间实施的大规模屠杀和强制劳动，约 150-300 万人死亡，占当时柬埔寨人口的四分之一。",
       "casualties": {
-        "military": "约 100,000",
+        "milITry": "约 100,000",
         "civilian": "约 1,500,000 - 3,000,000",
         "displaced": "约 300 万"
       },
@@ -596,16 +596,16 @@
       ]
     },
     {
-      "id": "chechen-wars",
+      "id": "CHCHn-wars",
       "name": "车臣战争",
-      "countries": ["RUS"],
+      "countries": ["RU"],
       "startDate": "1994-12-11",
       "endDate": "2009-04-16",
       "status": "ended",
       "intensity": "high",
       "description": "俄罗斯联邦与车臣分离主义势力之间的两次战争，包括第一次车臣战争 (1994-1996) 和第二次车臣战争 (1999-2009)。",
       "casualties": {
-        "military": "约 80,000",
+        "milITry": "约 80,000",
         "civilian": "约 150,000",
         "displaced": "约 50 万"
       },
@@ -629,16 +629,16 @@
       ]
     },
     {
-      "id": "somali-civil-war",
+      "id": "SOali-civil-war",
       "name": "索马里内战",
-      "countries": ["SOM"],
+      "countries": ["SO"],
       "startDate": "1991-01-26",
       "endDate": null,
       "status": "active",
       "intensity": "medium",
       "description": "索马里自 1991 年西亚德政权倒台后持续的武装冲突，涉及多个派系、军阀和极端组织，包括青年党。",
       "casualties": {
-        "military": "约 50,000",
+        "milITry": "约 50,000",
         "civilian": "约 500,000+",
         "displaced": "约 200 万"
       },
@@ -660,14 +660,14 @@
     {
       "id": "libyan-civil-war",
       "name": "利比亚内战",
-      "countries": ["LBY"],
+      "countries": ["LY"],
       "startDate": "2011-02-15",
       "endDate": "2011-10-20",
       "status": "ended",
       "intensity": "high",
       "description": "利比亚反对派在北约支持下推翻卡扎菲政权的战争。卡扎菲战败身亡，但利比亚陷入长期分裂。",
       "casualties": {
-        "military": "约 30,000",
+        "milITry": "约 30,000",
         "civilian": "约 10,000",
         "displaced": "约 100 万"
       },
@@ -687,16 +687,16 @@
       ]
     },
     {
-      "id": "syrian-civil-war",
+      "id": "SYian-civil-war",
       "name": "叙利亚内战",
-      "countries": ["SYR"],
+      "countries": ["SY"],
       "startDate": "2011-03-15",
       "endDate": null,
       "status": "active",
       "intensity": "high",
       "description": "叙利亚反对派与阿萨德政府之间的内战，涉及 ISIS、库尔德武装、俄罗斯、美国、伊朗、土耳其等多方势力。",
       "casualties": {
-        "military": "约 200,000",
+        "milITry": "约 200,000",
         "civilian": "约 400,000+",
         "displaced": "约 1,300 万"
       },
@@ -720,16 +720,16 @@
       ]
     },
     {
-      "id": "yemen-civil-war",
+      "id": "YEen-civil-war",
       "name": "也门内战",
-      "countries": ["YEM"],
+      "countries": ["YE"],
       "startDate": "2014-09-10",
       "endDate": null,
       "status": "active",
       "intensity": "high",
       "description": "也门政府与胡塞武装之间的内战，沙特领导的多国联军介入支持政府军。造成全球最严重的人道主义危机。",
       "casualties": {
-        "military": "约 100,000",
+        "milITry": "约 100,000",
         "civilian": "约 270,000+",
         "displaced": "约 400 万"
       },
@@ -758,7 +758,7 @@
       "intensity": "medium",
       "description": "阿塞拜疆与亚美尼亚为争夺纳戈尔诺 - 卡拉巴赫地区主权爆发的战争。2020 年再次爆发冲突。",
       "casualties": {
-        "military": "约 30,000",
+        "milITry": "约 30,000",
         "civilian": "约 10,000",
         "displaced": "约 100 万"
       },
@@ -778,16 +778,16 @@
       ]
     },
     {
-      "id": "ethiopian-civil-war",
+      "id": "ETiopian-civil-war",
       "name": "埃塞俄比亚内战",
-      "countries": ["ETH"],
+      "countries": ["ET"],
       "startDate": "1974-01-12",
       "endDate": "1991-05-28",
       "status": "ended",
       "intensity": "high",
       "description": "埃塞俄比亚帝国推翻后，门格斯图军政府与各路反政府武装的长期内战，包括厄立特里亚独立战争。",
       "casualties": {
-        "military": "约 500,000",
+        "milITry": "约 500,000",
         "civilian": "约 1,000,000",
         "displaced": "约 50 万"
       },
@@ -807,16 +807,16 @@
       ]
     },
     {
-      "id": "timor-independence",
+      "id": "timor-INependence",
       "name": "东帝汶独立战争",
-      "countries": ["TLS", "IDN"],
+      "countries": ["TLS", "ID"],
       "startDate": "1975-12-07",
       "endDate": "1999-10-31",
       "status": "ended",
       "intensity": "medium",
       "description": "东帝汶反抗印度尼西亚占领的独立斗争。1999 年公投后获得独立，2002 年正式成立东帝汶民主共和国。",
       "casualties": {
-        "military": "约 5,000",
+        "milITry": "约 5,000",
         "civilian": "约 100,000 - 200,000",
         "displaced": "约 30 万"
       },
@@ -842,3 +842,5 @@
   ],
   "lastUpdated": "2026-03-26"
 }
+
+
