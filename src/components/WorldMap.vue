@@ -16,7 +16,17 @@
     </div>
 
     <div class="svg-map-wrapper">
-      <div 
+      <!-- 加载动画 -->
+      <div v-if="loading" class="map-loading">
+        <div class="loading-spinner">
+          <div class="spinner-circle"></div>
+          <div class="spinner-circle"></div>
+          <div class="spinner-circle"></div>
+        </div>
+        <p class="loading-text">正在加载地图...</p>
+      </div>
+
+      <div
         class="svg-map-container"
         ref="mapContainer"
         @wheel.prevent="handleWheel"
@@ -113,6 +123,7 @@ const selectedConflict = ref(null)
 const svgContent = ref('')
 const tooltip = ref({ visible: false, name: '', conflict: null })
 const tooltipPos = ref({ x: 0, y: 0 })
+const loading = ref(true)
 
 // 缩放和平移状态
 const scale = ref(0.9)
@@ -347,13 +358,15 @@ const loadSVG = async () => {
       .replace(/width="[^"]*"/, '')
       .replace(/height="[^"]*"/, '')
     svgContent.value = cleanedSvg
-    
+    loading.value = false
+
     nextTick(() => {
       updateMapColors()
       addInteractions()
     })
   } catch (error) {
     console.error('加载 SVG 失败:', error)
+    loading.value = false
   }
 }
 
@@ -433,6 +446,61 @@ onUnmounted(() => {
   height: 600px;
   overflow: hidden;
   background: #0f1a2e;
+}
+
+/* 加载动画 */
+.map-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #16213e;
+  z-index: 100;
+}
+
+.loading-spinner {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.spinner-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e94560, #f39c12);
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.spinner-circle:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.spinner-circle:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.loading-text {
+  color: #888;
+  font-size: 14px;
+  text-align: center;
 }
 
 .svg-map-container {

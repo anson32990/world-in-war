@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- 地球背景 - 亮蓝色 -->
+  <circle cx="50" cy="50" r="48" fill="#4a90d9"/>
+  
+  <!-- 地球轮廓 -->
+  <circle cx="50" cy="50" r="46" fill="#5ba3e8" stroke="#ffffff" stroke-width="3"/>
+  
+  <!-- 大陆简化图案 - 绿色 -->
+  <ellipse cx="35" cy="35" rx="12" ry="10" fill="#4caf50" opacity="0.9"/>
+  <ellipse cx="65" cy="40" rx="10" ry="8" fill="#4caf50" opacity="0.9"/>
+  <ellipse cx="45" cy="60" rx="8" ry="12" fill="#4caf50" opacity="0.9"/>
+  <ellipse cx="70" cy="65" rx="6" ry="8" fill="#4caf50" opacity="0.9"/>
+  
+  <!-- 冲突热点 - 红色 -->
+  <circle cx="55" cy="45" r="4" fill="#e94560" opacity="1"/>
+  <circle cx="40" cy="55" r="3" fill="#e94560" opacity="0.9"/>
+  
+  <!-- 高光效果 -->
+  <circle cx="35" cy="35" r="6" fill="#ffffff" opacity="0.3"/>
+  
+  <!-- 外层光晕 -->
+  <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+</svg>
