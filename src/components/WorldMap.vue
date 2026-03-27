@@ -115,7 +115,7 @@ const tooltip = ref({ visible: false, name: '', conflict: null })
 const tooltipPos = ref({ x: 0, y: 0 })
 
 // 缩放和平移状态
-const scale = ref(1)
+const scale = ref(0.9)
 const translateX = ref(0)
 const translateY = ref(0)
 const isDragging = ref(false)
@@ -293,7 +293,7 @@ const handleCountryMouseMove = (e) => {
 // 缩放控制
 const handleWheel = (e) => {
   const delta = e.deltaY > 0 ? -0.1 : 0.1
-  const newScale = Math.min(Math.max(scale.value + delta, 1), 5)
+  const newScale = Math.min(Math.max(scale.value + delta, 0.5), 5)
   scale.value = newScale
 }
 
@@ -302,11 +302,11 @@ const zoomIn = () => {
 }
 
 const zoomOut = () => {
-  scale.value = Math.max(scale.value - 0.5, 1)
+  scale.value = Math.max(scale.value - 0.5, 0.5)
 }
 
 const resetMap = () => {
-  scale.value = 1
+  scale.value = 0.9
   translateX.value = 0
   translateY.value = 0
 }
